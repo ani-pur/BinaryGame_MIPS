@@ -4,7 +4,9 @@
 
 .data
 scoreMsg:  .asciiz "\nFinal score: "
-slash10:   .asciiz "/10\n"
+correctMsg:   .asciiz "\n Correct! Score: "
+wrongMsg:     .asciiz "\n Wrong! Score: "
+slash10:   .asciiz "/10\n \n"
 
 .text
 .globl main
@@ -53,7 +55,17 @@ do_dec:
     j    advance
 
 correct:
+    li $v0, 4
+    la $a0, correctMsg
+    syscall
     addi $s6, $s6, 1
+    li $v0, 1
+    move $a0, $s6
+    syscall
+    
+    li $v0, 4
+    la $a0, slash10
+    syscall
 
 advance:
     addi $s2, $s2, 1

@@ -7,6 +7,7 @@ bitReps:          .asciiz " 128  64  32  16   8   4   2   1\n"
 topRow:           .asciiz "+---+---+---+---+---+---+---+---+\n"
 midStart:         .asciiz "| "
 midSep:           .asciiz " | "
+midRow:       .asciiz "  |   |   |   |   |   |   |   |  "
 endBox:           .asciiz " |\n"
 bottomRow:        .asciiz "+---+---+---+---+---+---+---+---+\n"
 promptBinToDec:   .asciiz "Enter decimal: "
@@ -96,13 +97,44 @@ draw_decimal_board:
     li   $v0, 4
     la   $a0, decimalLabel
     syscall
-
+    
     li   $v0, 1
     move $a0, $t0
     syscall
 
     li   $v0, 11
     li   $a0, 10
+    syscall
+    
+    # print bit representations
+    li $v0, 4
+    la $a0, bitReps
+    syscall
+    
+    # --- print top border ---
+    li $v0, 4
+    la $a0, topRow
+    syscall
+
+    # --- print middle row ---
+    li $v0, 4
+    la $a0, midStart
+    syscall
+    
+
+    # print separator (between boxes)
+    li $v0, 4
+    la $a0, midRow
+    syscall
+
+    # end of binary boxes, print last column 
+    li $v0, 4
+    la $a0, endBox
+    syscall
+
+    # print bottom border 
+    li $v0, 4
+    la $a0, bottomRow
     syscall
 
     li   $v0, 4
