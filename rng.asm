@@ -6,7 +6,7 @@
 .globl rand_10bit
 .globl rand_8bit
 
-# Return: $v0 in [0,1023]
+# Return: $v0, value between [0,$a1] - can change to adjust level bias
 rand_10bit:
     li   $v0, 42          # random int
     li   $a1, 512        # upper bound (exclusive)
