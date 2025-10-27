@@ -1,6 +1,4 @@
-# ======================================================
-# main.asm (fixed, play-only)
-# ======================================================
+# no practice modes implemented yet
 
 .data
 scoreMsg:  .asciiz "\nFinal score: "
