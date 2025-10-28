@@ -43,6 +43,18 @@ do_bin:
     jal  draw_binary_board      # $v0 = user's decimal or -1
     move $t5, $v0
     beq  $t5, $s1, correct
+    li $v0, 4
+    la $a0, wrongMsg
+    syscall
+
+    li $v0, 1
+    move $a0, $s6
+    syscall
+
+    li $v0, 4
+    la $a0, slash10
+    syscall
+
     j    advance
 
 do_dec:
@@ -50,6 +62,18 @@ do_dec:
     jal  draw_decimal_board     # $v0 = parsed binary or -1
     move $t5, $v0
     beq  $t5, $s1, correct
+    li $v0, 4
+    la $a0, wrongMsg
+    syscall
+
+    li $v0, 1
+    move $a0, $s6
+    syscall
+
+    li $v0, 4
+    la $a0, slash10
+    syscall
+
     j    advance
 
 correct:
