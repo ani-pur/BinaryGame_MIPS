@@ -12,9 +12,10 @@ A terminal based Binary Game implemented in MIPS assembly for my Computer Archit
 
 1. Use MARS 4.5 or newer.
 2. Open all three files in the same MARS session.
-3. Make sure `main.asm` is set as the entry file.
-4. Assemble, then Run.
-5. Follow the prompts in the console.
+3. Make sure `main.asm` is the selected file.
+4. In the *Settings* tab, **enable** 'Assemble all files in directory' and 'Initialize program counter to global main if defined'
+5. Assemble, then Run.
+6. Follow the prompts in the console.
 
 
 ## Gameplay
